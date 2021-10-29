@@ -16,8 +16,6 @@ public class MainActivity extends AppCompatActivity {
 
      public void loadNextActivity(View view){
         Intent listViewActivity = new Intent(this, ListaNombres.class);
-        listViewActivity.putExtra("Test", 0);
         startActivity(listViewActivity);
-
      }
 }

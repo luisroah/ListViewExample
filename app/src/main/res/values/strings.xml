@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">ListViewExample</string>
+    <string name="app_name">ListViewAtivity</string>
+    <string name="nameBtn">Add Name</string>
+    <string name="nameBtnInit">Load List</string>
+    <string name="txtDesc">In this page you can add name into the
+        list typing text into the textbox and clicing into the button "Add Name".
+        If you want to remove some item into the list, please press a long time
+        the name from the list.</string>
 </resources>

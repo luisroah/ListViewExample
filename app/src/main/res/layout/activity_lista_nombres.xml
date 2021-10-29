@@ -9,25 +9,36 @@
     app:layout_constraintTop_toTopOf="parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ListView
-        android:id="@+id/lvListNames"
-        android:layout_width="411dp"
-        android:layout_height="133dp"
-        tools:ignore="Suspicious0dp"/>
+    <TextView
+        android:id="@+id/txtdescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/txtDesc"
+        android:textStyle="bold"/>
 
     <EditText
         android:id="@+id/etIngresarNombre"
-        android:layout_width="match_parent"
+        android:layout_width="494dp"
         android:layout_height="57dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name" />
 
     <Button
-        android:id="@+id/btnIngresarNombre"
+        android:id="@+id/button3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#009688"
         android:onClick="agregarNombreBTN"
-        android:text="Insertar nombre" />
+        android:text="@string/nameBtn"
+        app:icon="@android:drawable/ic_input_add" />
+
+    <ListView
+        android:id="@+id/lvListNames"
+        android:layout_width="411dp"
+        android:layout_height="606dp"
+        tools:ignore="Suspicious0dp"></ListView>
+
+
 
 </LinearLayout>
