@@ -12,8 +12,8 @@
     <ListView
         android:id="@+id/lvListNames"
         android:layout_width="411dp"
-        android:layout_height="0dp"
-        tools:ignore="Suspicious0dp"></ListView>
+        android:layout_height="133dp"
+        tools:ignore="Suspicious0dp"/>
 
     <EditText
         android:id="@+id/etIngresarNombre"
@@ -24,9 +24,10 @@
         android:text="Name" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnIngresarNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="agregarNombreBTN"
         android:text="Insertar nombre" />
 
 </LinearLayout>
