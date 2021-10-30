@@ -37,24 +37,38 @@ public class ListaNombres extends AppCompatActivity {
         nombres.add("Alberto");
         listNombreAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, nombres);
         listaNombres.setAdapter(listNombreAdapter);
+        mostrarNombre();
+        eliminarNombre();
+    }
 
+    public void agregarNombreBTN(View view){
+        if (txtIngresarNombre.getText().toString().equals("Name") || (txtIngresarNombre.getText().toString().equals(""))) {
+            Toast.makeText(getApplicationContext(), " ¡Please, Type correct name!", Toast.LENGTH_LONG).show();
+        }else{
+            nombres.add(txtIngresarNombre.getText().toString());
+            listNombreAdapter.notifyDataSetChanged();
+            Toast toast = Toast.makeText(getApplicationContext(), "Name: " + txtIngresarNombre.getText().toString() + " added successfully!", Toast.LENGTH_LONG);
+            toast.show();
+            txtIngresarNombre.setText("");
+        }
+    }
+
+    public void mostrarNombre(){
         listaNombres.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Name: "+adapterView.getItemAtPosition(i)+" Selected!", Toast.LENGTH_LONG);
-                toast.show();
+                Toast.makeText(getApplicationContext(), "Name: "+adapterView.getItemAtPosition(i)+" Selected!", Toast.LENGTH_LONG).show();
             }
         });
-
+    }
+    public void eliminarNombre(){
         listaNombres.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView adapterView, View view, int i, long l) {
                 final int posicion=i;
-
                 AlertDialog.Builder dialogo1 = new AlertDialog.Builder(ListaNombres.this);
                 dialogo1.setTitle("Important");
                 dialogo1.setMessage("¿ Do you want to remove this name ?");
-                dialogo1.setCancelable(false);
                 dialogo1.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialogo1, int id) {
                         nombres.remove(posicion);
@@ -66,17 +80,8 @@ public class ListaNombres extends AppCompatActivity {
                     }
                 });
                 dialogo1.show();
-
                 return false;
             }
         });
-    }
-
-    public void agregarNombreBTN(View view){
-        nombres.add(txtIngresarNombre.getText().toString());
-        listNombreAdapter.notifyDataSetChanged();
-        Toast toast = Toast.makeText(getApplicationContext(), "Name: "+txtIngresarNombre.getText().toString()+" added successfully!", Toast.LENGTH_LONG);
-        toast.show();
-        txtIngresarNombre.setText("");
     }
 }
