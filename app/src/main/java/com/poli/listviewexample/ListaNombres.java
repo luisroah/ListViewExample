@@ -42,13 +42,14 @@ public class ListaNombres extends AppCompatActivity {
     }
 
     public void agregarNombreBTN(View view){
-        if (txtIngresarNombre.getText().toString().equals("Name")){
+        if (txtIngresarNombre.getText().toString().equals("Name") || (txtIngresarNombre.getText().toString().equals(""))) {
             Toast.makeText(getApplicationContext(), " ¡Please, Type correct name!", Toast.LENGTH_LONG).show();
-        } else {
-        nombres.add(txtIngresarNombre.getText().toString());
-        listNombreAdapter.notifyDataSetChanged();
-        Toast.makeText(getApplicationContext(), "Name: "+txtIngresarNombre.getText().toString()+" added successfully!", Toast.LENGTH_LONG).show();
-        txtIngresarNombre.setText("");
+        }else{
+            nombres.add(txtIngresarNombre.getText().toString());
+            listNombreAdapter.notifyDataSetChanged();
+            Toast toast = Toast.makeText(getApplicationContext(), "Name: " + txtIngresarNombre.getText().toString() + " added successfully!", Toast.LENGTH_LONG);
+            toast.show();
+            txtIngresarNombre.setText("");
         }
     }
 
@@ -60,13 +61,12 @@ public class ListaNombres extends AppCompatActivity {
             }
         });
     }
-
+    
     public void eliminarNombre(){
         listaNombres.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView adapterView, View view, int i, long l) {
                 final int posicion=i;
-
                 AlertDialog.Builder dialogo1 = new AlertDialog.Builder(ListaNombres.this);
                 dialogo1.setTitle("Important");
                 dialogo1.setMessage("¿ Do you want to remove this name ?");
@@ -81,7 +81,6 @@ public class ListaNombres extends AppCompatActivity {
                     }
                 });
                 dialogo1.show();
-
                 return false;
             }
         });
